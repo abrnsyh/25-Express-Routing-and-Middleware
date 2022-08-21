@@ -64,9 +64,8 @@ module.exports = {
 	deleteHewanByID: (req, res) => {
 		const { id } = req.params;
 		const target = hewan.findIndex((item) => id == item.id);
-		console.log(target);
 		if (target < 0) {
-			return res.json(404, {
+			return res.status(400).json({
 				error: "pet data not found",
 			});
 		}
